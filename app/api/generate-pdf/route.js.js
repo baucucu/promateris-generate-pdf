@@ -2,10 +2,10 @@
 import puppeteer from "puppeteer";
 
 export default async function handler(req, res) {
-  const { templateName, id } = req.body;
+  const { collection, keys } = req.body;
 
   // 1. Get HTML content from Next.js page
-  const url = `${process.env.APP_URL}/templates${templateName}/${id}`;
+  const url = `${process.env.APP_URL}/templates${collection}/${keys[0]}`;
   const browser = await puppeteer.launch();
   const page = await browser.newPage();
   await page.goto(url);
