@@ -18,7 +18,7 @@ export default async function handler(req, res) {
   // 3. Upload to Directus
   const formData = new FormData();
   formData.append("file", pdfBuffer, "document.pdf");
-  const response = await fetch(`https://directus.appy.agency/files`, {
+  const response = await fetch(`${process.env.DIRECTUS_URL}/files`, {
     method: "POST",
     headers: {
       Authorization: `Bearer ${process.env.DIRECTUS_TOKEN}`,
