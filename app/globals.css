@@ -4,6 +4,8 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
+  max-width: 210mm; /* A4 width */
+  margin: 0 auto;
 }
 
 @layer base {
