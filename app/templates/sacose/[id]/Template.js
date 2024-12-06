@@ -56,7 +56,10 @@ const TechnicalSheet = ({ data = sampleData }) => {
         {/* this card needs to display the actual dimensions as well as tolerances +-5% before and after the actual dimensions */}
         <Card>
           <CardHeader className="pb-2">
-            <CardTitle>Dimensiuni</CardTitle>
+            <div className="grid grid-cols-2 gap-2">
+              <CardTitle>Dimensiuni</CardTitle>
+              <CardTitle className="text-right">Toleranțe</CardTitle>
+            </div>
           </CardHeader>
           <CardContent>
             <Table>
