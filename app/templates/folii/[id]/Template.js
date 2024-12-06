@@ -133,23 +133,29 @@ const TechnicalSheet = ({ data = sampleData }) => {
           </Table>
           <div className="grid grid-cols-1 gap-2">
             {data.fete.map((fata, index) => (
-              <Card key={index} className="mt-4">
-                <CardHeader className="pb-2">
-                  <CardTitle className="flex items-center gap-2">
-                    {/* <Badge variant="outline">{data.cod_articol}</Badge> */}
-                    Macheta:
-                    <Badge variant="outline">{fata.macheta}</Badge>
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  Culori:
-                  {fata.culori.map((culoare, index) => (
-                    <Badge key={index} variant="outline">
-                      {culoare.culoare}
-                    </Badge>
+              <Table key={index}>
+                <TableBody className="text-xs">
+                  {[
+                    {
+                      label: `Macheta ${index + 1}`,
+                      value: fata.macheta,
+                    },
+                    {
+                      label: "Culori",
+                      value: fata.culori
+                        .map((culoare) => culoare.culoare)
+                        .join(", "),
+                    },
+                  ].map((item, index) => (
+                    <TableRow key={index}>
+                      <TableCell className="font-medium">
+                        {item.label}
+                      </TableCell>
+                      <TableCell className="text-right">{item.value}</TableCell>
+                    </TableRow>
                   ))}
-                </CardContent>
-              </Card>
+                </TableBody>
+              </Table>
             ))}
           </div>
         </CardContent>
