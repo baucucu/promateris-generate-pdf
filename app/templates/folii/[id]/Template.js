@@ -103,63 +103,67 @@ const TechnicalSheet = ({ data = sampleData }) => {
           </Table>
         </CardContent>
       </Card>
-      <Card>
-        <CardHeader className="pb-2">
-          <CardTitle>Imprimare</CardTitle>
-        </CardHeader>
-        <CardContent className="grid grid-cols-2 gap-4">
-          <Table>
-            <TableBody className="text-xs">
-              {[
-                {
-                  label: "Tip imprimare",
-                  value: data.tip_imprimare,
-                },
-                {
-                  label: "Valt",
-                  value: data.valt,
-                },
-                {
-                  label: "Utilaj",
-                  value: data.utilaj,
-                },
-              ].map((item, index) => (
-                <TableRow key={index}>
-                  <TableCell className="font-medium">{item.label}</TableCell>
-                  <TableCell className="text-right">{item.value}</TableCell>
-                </TableRow>
+      {data.imprimare && (
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle>Imprimare</CardTitle>
+          </CardHeader>
+          <CardContent className="grid grid-cols-2 gap-4">
+            <Table>
+              <TableBody className="text-xs">
+                {[
+                  {
+                    label: "Tip imprimare",
+                    value: data.tip_imprimare,
+                  },
+                  {
+                    label: "Valt",
+                    value: data.valt,
+                  },
+                  {
+                    label: "Utilaj",
+                    value: data.utilaj,
+                  },
+                ].map((item, index) => (
+                  <TableRow key={index}>
+                    <TableCell className="font-medium">{item.label}</TableCell>
+                    <TableCell className="text-right">{item.value}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+            <div className="grid grid-cols-1 gap-2">
+              {data.fete.map((fata, index) => (
+                <Table key={index}>
+                  <TableBody className="text-xs">
+                    {[
+                      {
+                        label: `Macheta ${index + 1}`,
+                        value: fata.macheta,
+                      },
+                      {
+                        label: "Culori",
+                        value: fata.culori
+                          .map((culoare) => culoare.culoare)
+                          .join(", "),
+                      },
+                    ].map((item, index) => (
+                      <TableRow key={index}>
+                        <TableCell className="font-medium">
+                          {item.label}
+                        </TableCell>
+                        <TableCell className="text-right">
+                          {item.value}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
               ))}
-            </TableBody>
-          </Table>
-          <div className="grid grid-cols-1 gap-2">
-            {data.fete.map((fata, index) => (
-              <Table key={index}>
-                <TableBody className="text-xs">
-                  {[
-                    {
-                      label: `Macheta ${index + 1}`,
-                      value: fata.macheta,
-                    },
-                    {
-                      label: "Culori",
-                      value: fata.culori
-                        .map((culoare) => culoare.culoare)
-                        .join(", "),
-                    },
-                  ].map((item, index) => (
-                    <TableRow key={index}>
-                      <TableCell className="font-medium">
-                        {item.label}
-                      </TableCell>
-                      <TableCell className="text-right">{item.value}</TableCell>
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            ))}
-          </div>
-        </CardContent>
-      </Card>
+            </div>
+          </CardContent>
+        </Card>
+      )}
       <div className="grid grid-cols-2 gap-4">
         {data.articole_bom.length > 0 && (
           <Card>
