@@ -16,13 +16,14 @@ const TechnicalSheet = ({ data = sampleData }) => {
     data.articole_bom.filter((item) => {
       return item.familie === "folii";
     })[0].densitate || 0;
-  const greutate =
+  const greutate = (
     (2 *
       (2 * data.pliu_lateral + data.latime) *
       data.lungime *
       (data.grosime / 1000) *
       densitate) /
-    1000;
+    1000
+  ).toFixed(2);
   return (
     <div className="grid gap-4 m-4 text-xs">
       <Card className="col-span-full">
