@@ -17,9 +17,10 @@ const TechnicalSheet = ({ data = sampleData }) => {
       return item.familie === "folii";
     })[0].densitate || 0;
   const greutate =
-    ((2 * data.pliu_lateral + data.latime) *
+    (2 *
+      (2* data.pliu_lateral + data.latime) *
       data.lungime *
-      data.grosime *
+      (data.grosime / 1000) *
       densitate) /
     1000;
   return (
