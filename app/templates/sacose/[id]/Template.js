@@ -15,7 +15,7 @@ const TechnicalSheet = ({ data = sampleData }) => {
   const densitate =
     data.articole_bom.filter((item) => {
       return item.familie === "folii";
-    })[0].densitate || 0;
+    })[0]?.densitate || 0;
   const greutate = (
     (2 *
       (2 * data.pliu_lateral + data.latime) *
