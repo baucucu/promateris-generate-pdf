@@ -60,6 +60,20 @@ const TechnicalSheet = ({ data = sampleData }) => {
           </CardHeader>
           <CardContent>
             <Table>
+              <TableHeader>
+                <TableRow>
+                  <TableHead className="text-xs font-medium"></TableHead>
+                  <TableHead className="text-xs font-medium text-right">
+                    Min
+                  </TableHead>
+                  <TableHead className="text-xs font-medium text-right">
+                    Mediu
+                  </TableHead>
+                  <TableHead className="text-xs font-medium text-right">
+                    Maxim
+                  </TableHead>
+                </TableRow>
+              </TableHeader>
               <TableBody className="text-xs">
                 {[
                   { label: "Lățime (mm)", value: data.latime, unit: "mm" },
