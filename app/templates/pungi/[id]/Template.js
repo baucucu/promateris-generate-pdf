@@ -17,7 +17,11 @@ const TechnicalSheet = ({ data = sampleData }) => {
       return item.familie === "folii";
     })[0].densitate || 0;
   const greutate =
-    (2 * data.latime * data.lungime * data.grosime * densitate) / 1000;
+    ((2 * data.pliu_lateral + data.latime) *
+      data.lungime *
+      data.grosime *
+      densitate) /
+    1000;
   return (
     <div className="grid gap-4 m-4 text-xs">
       <Card className="col-span-full">
