@@ -90,8 +90,8 @@ const TechnicalSheet = ({ data = sampleData }) => {
                   value: data.reteta,
                 },
                 {
-                  label: "Componenete reteta",
-                  value: data.componenete_reteta,
+                  label: "Componente reteta",
+                  value: data.componente_reteta,
                 },
               ].map((item, index) => (
                 <TableRow key={index}>
