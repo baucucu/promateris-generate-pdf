@@ -65,6 +65,10 @@ const TechnicalSheet = ({ data = sampleData }) => {
                   value: data.latime_folie_tubulara,
                   unit: "mm",
                 },
+                {
+                  label: "Tratare",
+                  value: data.grosime_folie_tubulara,
+                },
                 { label: "Culoare", value: data.culoare },
                 {
                   label: "Tratare",
